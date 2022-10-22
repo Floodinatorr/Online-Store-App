@@ -1,2 +1,4 @@
-# Desktop App for Django
-With this repository, you can learn to code desktop application for Django.
+# Online Store App
+With this repository, you can learn to code mobile application for Django.
+
+Very soon...
