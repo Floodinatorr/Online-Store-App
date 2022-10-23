@@ -21,6 +21,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,3 +124,59 @@ MEDIA_URL = 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "account.User" 
+
+JAZZMIN_SETTINGS = {
+    'site_title': 'Exact',
+    'site_header': 'Exact',
+    'site_brand': 'Exact',
+    'welcome_sign': 'Hoşgeldin.',
+    'hide_models': [
+        'auth.group'
+    ],
+    "icons": {
+        "account.User" : "fas fa-user",
+        "products.Category" : "fas fa-th-large",
+        "products.Product" : "fas fa-box",
+        "products.ProductComment" : "fas fa-comment",
+        "products.ProductCommentAnswer" : "fas fa-comment",
+        "products.ProductQuestion" : "fas fa-question",
+        "products.ProductQuestionAnswer" : "fas fa-question",
+        "order.Order" : "fas fa-shopping-cart",
+        "store.Store" : "fas fa-store",
+        "store.StoreComment" : "fas fa-comment",
+    },
+    "order_with_respect_to": ["auth", "account", "products", "order", "store"],
+    "show_ui_builder": True,
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": False,
+    "accent": "accent-primary",
+    "navbar": "navbar-dark",
+    "no_navbar_border": True,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": True,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "solar",
+    "dark_mode_theme": "solar",
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-outline-info",
+        "warning": "btn-outline-warning",
+        "danger": "btn-outline-danger",
+        "success": "btn-outline-success"
+    }
+}
