@@ -1,0 +1,57 @@
+.navbar{
+    padding: 0 !important;
+    border-bottom: 2px solid #f8f9fa;
+}
+
+.navbar-title{
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #212529;
+    line-height: 1;
+    font-family: 'Roboto', sans-serif;
+}
+
+.userIcon,
+.cartIcon{
+    font-size: 1.5em;
+    color: #212529;
+    text-decoration: none;
+    display:flex;
+    transition: all 1s ease;
+}
+
+.userIcon p{
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 0 !important;
+    margin-inline: .5rem;
+}
+
+.userIcon:hover,
+.cartIcon:hover,
+.userIcon:focus,
+.cartIcon:focus{    
+    color: #484848;
+}
+
+.userIcon::before{
+    content: "\F4E1";
+    transition: all 0.3s ease;
+}
+
+.cartIcon::before{
+    content: "\F244";
+    transition: all 0.3s ease;
+}
+
+.cartIcon:hover::before,
+.cartIcon:focus::before{
+    content: "\F23D";
+    color: #ec5620;
+}
+
+.userIcon:hover::before,
+.userIcon:focus::before{
+    content: "\F4DA";
+    color: #ec5620;
+}

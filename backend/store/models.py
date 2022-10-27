@@ -3,6 +3,7 @@ from account.models import User
 
 class Store(models.Model):
     name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     address = models.CharField(max_length=250)
     phone = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
@@ -10,7 +11,7 @@ class Store(models.Model):
     description = models.CharField(max_length=1000)
     image = models.ImageField(upload_to='store/images', default='')
     admin = models.ForeignKey(User, on_delete=models.CASCADE)
-    members = models.ManyToManyField(User, related_name='store_members')
+    members = models.ManyToManyField(User, related_name='store_members', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

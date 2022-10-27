@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{store.name}} | Clothes, Devices and more... Exact{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/store.css' %}">
+{% endblock %}
+
+{% block navbar %}
+{% include 'components/navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<div style="width:100%;height:190px;background-color:#ec5620;gap:2rem;padding-inline:7.5rem;" class="d-flex align-items-center store">
+    <img style="border-radius: 50%;" src="{{ store.image.url }}" width="90" height="90">
+    <div style="color:#f8f9fa;">
+        <h1>{{store.name}}</h1>
+        <p style="margin-bottom: 0;">132 ürün | 659 sipariş</p>
+    </div>
+</div>
+{% endblock %}
