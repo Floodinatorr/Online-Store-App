@@ -6,6 +6,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/store.css' %}">
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
 {% endblock %}
 
 {% block navbar %}
@@ -29,22 +30,59 @@
             </div>
         </div>
         <div class="col-12 col-md-9">
-            <div class="orderCard">
+            <div class="topBar">
+                <div class="gridCard">
+                    <button class="gridButton bi twoGrid"></button>
+                    <button class="gridButton bi threeGrid buttonActive"></button>
+                </div>
                 <select class="form-select orderBar" aria-label="Default select example">
                     <option selected>Önerilen</option>
                     <option value="1">En Düşük Fiyat</option>
                     <option value="2">En Yüksek Fiyat</option>
                     <option value="3">En Beğenilenler</option>
                 </select>
-                <div class="gridCard">
-                    <button class="gridButton bi twoGrid"></button>
-                    <button class="gridButton bi threeGrid"></button>
-                </div>
             </div>
             <div class="products">
-
+                <div id="needRow" class="row row-cols-md-3">
+                    {% for product in products %}
+                    <div class="col">
+                        <div class="productCard">
+                            <img src="{{ product.image.url }}">
+                            <p class="productName">{{ product.name }}</p>
+                            {% if product.discount %}
+                            <small class="oldPrice">{{ product.price }} TL</small>
+                            <small class="discount">-{{ product.discount }}%</small>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <p class="newPrice">{{ product.give_discount_price }} TL</p>
+                                <div class="pieceDiv">
+                                    <button class="increaseButton">+</button>
+                                    <input type="number" class="pieceInput" value="1">
+                                    <button class="decreaseButton">-</button>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div>
+                                <p class="newPrice">{{ product.price }}TL</p>
+                            </div>
+                            {% endif %}
+                            <button class="heartButton bi"></button>
+                            <button class="cartButton bi">Sepete Ekle</button>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col">
+                        <div class="alert alert-warning" role="alert">
+                            Bu mağazada ürün bulunmamaktadır.
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/list_product.js' %}"></script>
 {% endblock %}

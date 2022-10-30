@@ -19,16 +19,17 @@
     margin-block: 1rem;
 }
 
-.orderCard{
-    width: 100%;
+.topBar{
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-block:1rem;
 }
 
 .orderBar{
     border: 1px solid #d8d2d2;
     border-radius: 1rem;
-    margin-top: 1rem;
     width: 250px;
 }
 
@@ -37,9 +38,26 @@
 }
 
 .gridButton{
-    border: 1px solid #d8d2d2;
+    border: none;
     border-radius: 1rem;
-    margin-top: 1rem;
-    width: 250px;
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+}
+
+.twoGrid::before{
+    content: "\F3FB";
+}
+
+.threeGrid::before{
+    content: "\F3F8";
+}
+
+.gridButton:focus{
+    outline: none !important;
+}
+
+.buttonActive{
     background-color: #f8f9fa;
 }
+

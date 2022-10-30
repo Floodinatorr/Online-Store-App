@@ -16,5 +16,6 @@ def StoreDetail(request, slug):
         'store': store,
         'product_count': product_count,
         'order_count': order_count,
+        'products': products,
     }
     return render(request, 'store/store_detail.html', context)

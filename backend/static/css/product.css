@@ -1,0 +1,120 @@
+.productCard{
+    width: 100%;
+    padding: 1rem;
+    position: relative;
+}
+
+.productCard img{
+    width: 100%;
+}
+
+.productName{
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.oldPrice{
+    font-size: .8rem;
+    font-weight: 400;
+    text-decoration: line-through;
+    color: #000;
+}
+
+.newPrice{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.discount{
+    border:1px solid #de3545;
+    color: #de3545;
+    background-color: #de354625;
+    font-size: 0.8rem;
+    padding: 2px 4px;
+    border-radius: .25rem;
+}
+
+.heartButton{
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.heartButton::before{
+    content:"";
+}
+
+.heartButton:hover{
+    background-color: #f8f9fa;
+}
+
+.heartButton:hover::before{
+    content:"\F417";
+}
+
+.cartButton{
+    border: none;
+    border-radius: .5rem;
+    background-color: #ec5620;
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    font-size: 1rem;
+}
+
+.cartButton::before{
+    content: "\F217";
+    margin-right: .5rem;
+}
+
+.pieceDiv{
+    display: flex;
+    align-items: center;
+    margin-top: -1.5rem;
+}
+
+.increaseButton{
+    border:none;
+    background-color: #f8f9fa;
+    border-top: 1px solid #d2d8d6;
+    border-bottom: 1px solid #d2d8d6;
+    border-left: 1px solid #d2d8d6;
+    width: 36px;
+    height: 36px;
+    border-bottom-left-radius: .5rem;
+    border-top-left-radius: .5rem;
+}
+
+.decreaseButton{
+    border:none;
+    border-top: 1px solid #d2d8d6;
+    border-bottom: 1px solid #d2d8d6;
+    border-right: 1px solid #d2d8d6 ;
+    background-color: #f8f9fa;
+    width: 36px;
+    height: 36px;
+    border-bottom-right-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.pieceInput{
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-top: 1px solid #d2d8d6;
+    border-bottom: 1px solid #d2d8d6;
+    align-items: center;
+    text-align: center;
+    -moz-appearance:textfield;
+}
+
+.pieceInput::-webkit-outer-spin-button,
+.pieceInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

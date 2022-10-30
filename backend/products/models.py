@@ -21,7 +21,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
     price = models.FloatField()
-    discount = models.FloatField()
+    discount = models.IntegerField()
     image = models.ImageField(upload_to='product/images', default='')
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -30,6 +30,11 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
+
+    def give_discount_price(self):
+        new = self.price - (self.price * self.discount / 100)
+        asd = "{:.2f}".format(new)
+        return asd
 
     def __str__(self):
         return self.name
