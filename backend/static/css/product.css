@@ -1,82 +1,26 @@
-.productCard{
-    width: 100%;
-    padding: 1rem;
-    position: relative;
+.productDetail{
+    margin-top: 2rem;
+    display: flex;
 }
 
-.productCard img{
+.productImage{
+    width: 500px;
+    border: 1px solid #d2d8d6;
+    border-radius: 1rem;
+}
+
+.productImage img{
     width: 100%;
+    border-radius: 1rem;
 }
 
 .productName{
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 0;
-}
-
-.oldPrice{
-    font-size: .8rem;
-    font-weight: 400;
-    text-decoration: line-through;
-    color: #000;
-}
-
-.newPrice{
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.discount{
-    border:1px solid #de3545;
-    color: #de3545;
-    background-color: #de354625;
-    font-size: 0.8rem;
-    padding: 2px 4px;
-    border-radius: .25rem;
-}
-
-.heartButton{
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 50%;
-    background-color: transparent;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-}
-
-.heartButton::before{
-    content:"";
-}
-
-.heartButton:hover{
-    background-color: #f8f9fa;
-}
-
-.heartButton:hover::before{
-    content:"\F417";
-}
-
-.cartButton{
-    border: none;
-    border-radius: .5rem;
-    background-color: #ec5620;
-    color: #fff;
-    width: 100%;
-    height: 40px;
-    font-size: 1rem;
-}
-
-.cartButton::before{
-    content: "\F217";
-    margin-right: .5rem;
+    font-size: 1.5rem;
 }
 
 .pieceDiv{
     display: flex;
     align-items: center;
-    margin-top: -1.5rem;
 }
 
 .increaseButton{
@@ -117,4 +61,39 @@
 .pieceInput::-webkit-outer-spin-button,
 .pieceInput::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+
+.productInfo{
+    margin-left: 2rem;
+}
+
+.addCartButton{
+    border: none;
+    background-color: #ec5620;
+    color: #fff;
+    font-size: 1rem;
+    border: 1px solid #ec5620;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.addCartButton::before{
+    content: "\F244";
+    margin-right: .5rem;
+}
+
+.orderButton{
+    border: none;
+    background-color: transparent;
+    color: #ec5620;
+    font-size: 1rem;
+    border: 1px solid #ec5620;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+ 
+.productButtonGroup{
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: row;
 }

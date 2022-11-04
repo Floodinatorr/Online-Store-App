@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{product.name}} | Clothes, Devices and more... Exact{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+
+{% block navbar %}
+{% include 'components/navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-9">
+            <div class="productDetail">
+                <div class="productImage">
+                    <img src="{{product.image.url}}" alt="{{product.name}}">
+                </div>
+                <div class="productInfo">
+                    <h1 class="productName">{{product.name}}</h1>
+                    {% if product.discount %}
+                    <small class="oldPrice">{{ product.price }} TL</small>
+                    <small class="discount">-{{ product.discount }}%</small>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="newPrice">{{ product.give_discount_price }} TL</p>
+                        <div class="pieceDiv">
+                            <button class="increaseButton">+</button>
+                            <input type="number" class="pieceInput" value="1">
+                            <button class="decreaseButton">-</button>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div>
+                        <p class="newPrice">{{ product.price }}TL</p>
+                    </div>
+                    {% endif %}
+                    <div class="productButtonGroup">
+                        <button class="addCartButton bi" onclick="addCart({{ product.id }})">Sepete Ekle</button>
+                        <button class="orderButton">Hemen Al</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/list_product.js' %}"></script>
+<script src="{% static 'js/add_cart.js' %}"></script>
+{% endblock %}

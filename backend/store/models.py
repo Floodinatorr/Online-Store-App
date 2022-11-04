@@ -1,9 +1,10 @@
 from django.db import models
 from account.models import User
+from autoslug import AutoSlugField
 
 class Store(models.Model):
     name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
+    slug = AutoSlugField(populate_from='name', unique=True, null=True, blank=True)
     address = models.CharField(max_length=250)
     phone = models.CharField(max_length=100)
     email = models.CharField(max_length=100)

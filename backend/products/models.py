@@ -2,6 +2,7 @@ from django.db import models
 from account.models import User
 from store.models import Store
 from django.core.validators import MaxValueValidator
+from autoslug import AutoSlugField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -24,6 +25,7 @@ class Product(models.Model):
     discount = models.IntegerField()
     image = models.ImageField(upload_to='product/images', default='')
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    slug = AutoSlugField(populate_from='name', unique=True, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
