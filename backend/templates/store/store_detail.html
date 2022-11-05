@@ -34,6 +34,8 @@
                 <div class="gridCard">
                     <button class="gridButton bi twoGrid"></button>
                     <button class="gridButton bi threeGrid buttonActive"></button>
+                    <button class="gridButton fourGrid"><img style="margin-top:-4px;" width="16" height="16"
+                            src="{% static 'img/fill4-4.svg' %}" alt=""></button>
                 </div>
                 <select class="form-select orderBar" aria-label="Default select example">
                     <option selected>Önerilen</option>
@@ -55,9 +57,9 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <p class="newPrice">{{ product.give_discount_price }} TL</p>
                                 <div class="pieceDiv">
-                                    <button class="increaseButton">+</button>
-                                    <input type="number" class="pieceInput" value="1">
-                                    <button class="decreaseButton">-</button>
+                                    <button id="countIncrease" class="increaseButton">+</button>
+                                    <input id="countInput" type="number" class="pieceInput" value="1">
+                                    <button id="countDecrease" class="decreaseButton">-</button>
                                 </div>
                             </div>
                             {% else %}
@@ -66,7 +68,7 @@
                             </div>
                             {% endif %}
                             <button class="heartButton bi"></button>
-                            <button class="cartButton bi">Sepete Ekle</button>
+                            <button onclick="addCart({{ product.id }})" class="cartButton bi">Sepete Ekle</button>
                         </div>
                     </div>
                     {% empty %}
@@ -85,4 +87,5 @@
 
 {% block js %}
 <script src="{% static 'js/list_product.js' %}"></script>
+<script src="{% static 'js/add_cart.js' %}"></script>
 {% endblock %}

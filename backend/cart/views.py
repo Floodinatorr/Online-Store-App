@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import *
 from products.models import Product
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/account/login/')
 def CartAdd(request, id, count):
     product = Product.objects.get(id=id)
     if CartList.objects.get_queryset().filter(user=request.user).exists():
@@ -16,8 +18,11 @@ def CartAdd(request, id, count):
             cart_product.save()
         cart.products.add(product)
         cart.save()
-        return HttpResponse("asdasdasd")
     else:
         cart = CartList.objects.create(user=request.user)
-        return HttpResponse("Cart is empty")    
+        cart_product = CartProductCount.objects.create(cart=cart, product=product, count=count)
+        cart_product.save()
+        cart.products.add(product)
+        cart.save()
+    return HttpResponse('{"status": "added_cart"}', content_type='text/json')  
     
