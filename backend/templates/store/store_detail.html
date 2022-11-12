@@ -37,18 +37,18 @@
                     <button class="gridButton fourGrid"><img style="margin-top:-4px;" width="16" height="16"
                             src="{% static 'img/fill4-4.svg' %}" alt=""></button>
                 </div>
-                <select class="form-select orderBar" aria-label="Default select example">
+                <form action="{% url 'store_detail' slug=store.slug %}"><select class="form-select orderBar" aria-label="Default select example">
                     <option selected>Önerilen</option>
-                    <option value="1">En Düşük Fiyat</option>
+                    <option value="1" onclick="window.location.href = '{% url 'store_detail' slug=store.slug %}?ORDER=priceLow';">En Düşük Fiyat</option>
                     <option value="2">En Yüksek Fiyat</option>
                     <option value="3">En Beğenilenler</option>
-                </select>
+                </select></form>
             </div>
             <div class="products">
                 <div id="needRow" class="row row-cols-md-3">
                     {% for product in products %}
                     <div class="col">
-                        <div class="productCard">
+                        <div onmouseover="showCard({{ product.id }})" onmouseout="hideCard({{ product.id }})" id="productCard-{{ product.id }}" class="productCard">
                             <img src="{{ product.image.url }}">
                             <p class="productName">{{ product.name }}</p>
                             {% if product.discount %}
@@ -56,19 +56,19 @@
                             <small class="discount">-{{ product.discount }}%</small>
                             <div class="d-flex align-items-center justify-content-between">
                                 <p class="newPrice">{{ product.give_discount_price }} TL</p>
-                                <div class="pieceDiv">
+                                <!--<div class="pieceDiv">
                                     <button id="countIncrease" class="increaseButton">+</button>
                                     <input id="countInput" type="number" class="pieceInput" value="1">
                                     <button id="countDecrease" class="decreaseButton">-</button>
-                                </div>
+                                </div>-->
                             </div>
                             {% else %}
                             <div>
                                 <p class="newPrice">{{ product.price }}TL</p>
                             </div>
                             {% endif %}
-                            <button class="heartButton bi"></button>
-                            <button onclick="addCart({{ product.id }})" class="cartButton bi">Sepete Ekle</button>
+                            <button id="likeButton-{{ product.id }}" class="heartButton bi hideInfo"></button>
+                            <button id="cartButton-{{ product.id }}" class="cartButton bi hideInfo" onclick="addCart({{ product.id }},1)">Sepete Ekle</button>
                         </div>
                     </div>
                     {% empty %}
@@ -88,4 +88,5 @@
 {% block js %}
 <script src="{% static 'js/list_product.js' %}"></script>
 <script src="{% static 'js/add_cart.js' %}"></script>
+<script src="{% static 'js/product_card.js' %}"></script>
 {% endblock %}

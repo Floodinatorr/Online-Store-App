@@ -15,13 +15,11 @@ gridButton.forEach((button) => {
             needRow.classList.remove('row-cols-md-2');
             needRow.classList.remove('row-cols-md-4');
             needRow.classList.add('row-cols-md-3');
-        }
-        else if (button.classList.contains('fourGrid')) {
+        } else if (button.classList.contains('fourGrid')) {
             needRow.classList.remove('row-cols-md-2');
             needRow.classList.remove('row-cols-md-3');
             needRow.classList.add('row-cols-md-4');
-        }
-        else {
+        } else {
             alert('Error in Grid Buttons!');
         }
     });

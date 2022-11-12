@@ -29,7 +29,7 @@
 .discount{
     border:1px solid #de3545;
     color: #de3545;
-    background-color: #de354625;
+    background-color: #fae2e4;
     font-size: 0.8rem;
     padding: 2px 4px;
     border-radius: .25rem;
@@ -40,21 +40,13 @@
     height: 36px;
     border: none;
     border-radius: 50%;
-    background-color: transparent;
     position: absolute;
     top: 1rem;
     right: 1rem;
-}
-
-.heartButton::before{
-    content:"";
-}
-
-.heartButton:hover{
     background-color: #f8f9fa;
 }
 
-.heartButton:hover::before{
+.heartButton::before{
     content:"\F417";
 }
 
@@ -117,4 +109,12 @@
 .pieceInput::-webkit-outer-spin-button,
 .pieceInput::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+
+.showInfo{
+    display: block;
+}
+
+.hideInfo{
+    display: none;
 }

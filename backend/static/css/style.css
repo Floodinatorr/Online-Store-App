@@ -53,5 +53,7 @@
 .userIcon:hover::before,
 .userIcon:focus::before{
     content: "\F4DA";
+    transition-delay: 1s;
+    transition-property: content;
     color: #ec5620;
 }
