@@ -37,18 +37,21 @@
                     <button class="gridButton fourGrid"><img style="margin-top:-4px;" width="16" height="16"
                             src="{% static 'img/fill4-4.svg' %}" alt=""></button>
                 </div>
-                <form action="{% url 'store_detail' slug=store.slug %}"><select class="form-select orderBar" aria-label="Default select example">
-                    <option selected>Önerilen</option>
-                    <option value="1" onclick="window.location.href = '{% url 'store_detail' slug=store.slug %}?ORDER=priceLow';">En Düşük Fiyat</option>
-                    <option value="2">En Yüksek Fiyat</option>
-                    <option value="3">En Beğenilenler</option>
-                </select></form>
+                <form action="{% url 'store_detail' slug=store.slug %}"><select class="form-select orderBar"
+                        aria-label="Default select example" onchange="this.options[this.selectedIndex].value && (window.location.href = '?ORDER=' + this.options[this.selectedIndex].value);">
+                        <option selected="false">Önerilen</option>
+                        <option value="priceLow">En Düşük Fiyat</option>
+                        <option value="priceHigh">En Yüksek Fiyat</option>
+                        <option value="3">En Beğenilenler</option>
+                    </select>
+                </form>
             </div>
             <div class="products">
                 <div id="needRow" class="row row-cols-md-3">
                     {% for product in products %}
                     <div class="col">
-                        <div onmouseover="showCard({{ product.id }})" onmouseout="hideCard({{ product.id }})" id="productCard-{{ product.id }}" class="productCard">
+                        <div onmouseover="showCard({{ product.id }})" onmouseout="hideCard({{ product.id }})"
+                            id="productCard-{{ product.id }}" class="productCard">
                             <img src="{{ product.image.url }}">
                             <p class="productName">{{ product.name }}</p>
                             {% if product.discount %}
@@ -68,7 +71,8 @@
                             </div>
                             {% endif %}
                             <button id="likeButton-{{ product.id }}" class="heartButton bi hideInfo"></button>
-                            <button id="cartButton-{{ product.id }}" class="cartButton bi hideInfo" onclick="addCart({{ product.id }},1)">Sepete Ekle</button>
+                            <button id="cartButton-{{ product.id }}" class="cartButton bi hideInfo"
+                                onclick="addCart({{ product.id }},1)">Sepete Ekle</button>
                         </div>
                     </div>
                     {% empty %}
@@ -89,4 +93,5 @@
 <script src="{% static 'js/list_product.js' %}"></script>
 <script src="{% static 'js/add_cart.js' %}"></script>
 <script src="{% static 'js/product_card.js' %}"></script>
+<script src="{% static 'js/order_products.js' %}"></script>
 {% endblock %}
