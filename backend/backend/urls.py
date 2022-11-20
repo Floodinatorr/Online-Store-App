@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
-from order.views import AnaSayfa
+# from order.views import AnaSayfa
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', AnaSayfa, name="anasayfa"),
+    # path('', AnaSayfa, name="anasayfa"),
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('products/',include('products.urls')),

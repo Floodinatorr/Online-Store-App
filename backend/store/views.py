@@ -1,3 +1,4 @@
+"""
 from django.shortcuts import render, get_object_or_404
 from .models import Store
 from products.models import Product
@@ -32,3 +33,18 @@ def StoreDetail(request, slug):
         'products': products,
     }
     return render(request, 'store/store_detail.html', context)
+
+"""
+from rest_framework import viewsets
+from .serializers import *
+from .models import *
+
+
+class StoreViewSet(viewsets.ModelViewSet):
+    queryset = Store.objects.all()
+    serializer_class = StoreSerializer
+
+class StoreCommentViewSet(viewsets.ModelViewSet):
+    queryset = StoreComment.objects.all()
+    serializer_class = StoreCommentSerializer
+

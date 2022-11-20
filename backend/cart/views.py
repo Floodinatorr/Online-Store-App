@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+"""from django.shortcuts import render, get_object_or_404
 from .models import *
 from products.models import Product
 from django.http import HttpResponse
@@ -25,4 +25,16 @@ def CartAdd(request, id, count):
         cart.products.add(product)
         cart.save()
     return HttpResponse('{"status": "added_cart"}', content_type='text/json')  
-    
+"""
+
+from rest_framework import viewsets
+from .serializers import *
+from .models import *
+
+class CartListViewSet(viewsets.ModelViewSet):
+    queryset = CartList.objects.all()
+    serializer_class = CartListSerializer
+
+class CartProductCountViewSet(viewsets.ModelViewSet):
+    queryset = CartProductCount.objects.all()
+    serializer_class = CartProductCountSerializer
